@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="6" passed="5" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-08-05T11:27:40 IST" name="Default suite" finished-at="2026-08-05T11:28:01 IST" duration-ms="20903">
+    <groups>
+    </groups>
+    <test started-at="2026-08-05T11:27:40 IST" name="Default test" finished-at="2026-08-05T11:28:01 IST" duration-ms="20903">
+      <class name="com.framework.tests.negative.LoginNegativeTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.framework.tests.negative.LoginNegativeTest@7cc0cdad]" started-at="2026-08-05T11:27:40 IST" name="setUp" finished-at="2026-08-05T11:27:45 IST" duration-ms="4375" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testEmptyCredentials()[pri:0, instance:com.framework.tests.negative.LoginNegativeTest@7cc0cdad]" started-at="2026-08-05T11:27:45 IST" name="testEmptyCredentials" description="TC_NEG_03: Login fails with empty username and password" finished-at="2026-08-05T11:27:45 IST" duration-ms="365" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEmptyCredentials -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.framework.tests.negative.LoginNegativeTest@7cc0cdad]" started-at="2026-08-05T11:27:45 IST" name="tearDown" finished-at="2026-08-05T11:27:45 IST" duration-ms="438" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.framework.tests.negative.LoginNegativeTest@7cc0cdad]" started-at="2026-08-05T11:27:45 IST" name="setUp" finished-at="2026-08-05T11:27:47 IST" duration-ms="2107" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testEmptyPassword()[pri:0, instance:com.framework.tests.negative.LoginNegativeTest@7cc0cdad]" started-at="2026-08-05T11:27:47 IST" name="testEmptyPassword" description="TC_NEG_10: Login fails when password is left empty" finished-at="2026-08-05T11:27:48 IST" duration-ms="630" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testEmptyPassword -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.framework.tests.negative.LoginNegativeTest@7cc0cdad]" started-at="2026-08-05T11:27:48 IST" name="tearDown" finished-at="2026-08-05T11:27:48 IST" duration-ms="390" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.framework.tests.negative.LoginNegativeTest@7cc0cdad]" started-at="2026-08-05T11:27:48 IST" name="setUp" finished-at="2026-08-05T11:27:51 IST" duration-ms="2065" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testInvalidPassword()[pri:0, instance:com.framework.tests.negative.LoginNegativeTest@7cc0cdad]" started-at="2026-08-05T11:27:51 IST" name="testInvalidPassword" description="TC_NEG_02: Login fails with an invalid password" finished-at="2026-08-05T11:27:51 IST" duration-ms="641" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInvalidPassword -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.framework.tests.negative.LoginNegativeTest@7cc0cdad]" started-at="2026-08-05T11:27:51 IST" name="tearDown" finished-at="2026-08-05T11:27:52 IST" duration-ms="408" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.framework.tests.negative.LoginNegativeTest@7cc0cdad]" started-at="2026-08-05T11:27:52 IST" name="setUp" finished-at="2026-08-05T11:27:54 IST" duration-ms="2053" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testInvalidUsername()[pri:0, instance:com.framework.tests.negative.LoginNegativeTest@7cc0cdad]" started-at="2026-08-05T11:27:54 IST" name="testInvalidUsername" description="TC_NEG_01: Login fails with an invalid username" finished-at="2026-08-05T11:27:54 IST" duration-ms="635" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInvalidUsername -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.framework.tests.negative.LoginNegativeTest@7cc0cdad]" started-at="2026-08-05T11:27:54 IST" name="tearDown" finished-at="2026-08-05T11:27:55 IST" duration-ms="427" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.framework.tests.negative.LoginNegativeTest@7cc0cdad]" started-at="2026-08-05T11:27:55 IST" name="setUp" finished-at="2026-08-05T11:27:57 IST" duration-ms="2075" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testLockedOutUser()[pri:0, instance:com.framework.tests.negative.LoginNegativeTest@7cc0cdad]" started-at="2026-08-05T11:27:57 IST" name="testLockedOutUser" description="TC_NEG_04: locked_out_user cannot login" finished-at="2026-08-05T11:27:58 IST" duration-ms="774" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Expected the locked-out user error message expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Expected the locked-out user error message expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.framework.tests.negative.LoginNegativeTest.testLockedOutUser(LoginNegativeTest.java:44)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLockedOutUser -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.framework.tests.negative.LoginNegativeTest@7cc0cdad]" started-at="2026-08-05T11:27:58 IST" name="tearDown" finished-at="2026-08-05T11:27:58 IST" duration-ms="518" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.framework.tests.negative.LoginNegativeTest@7cc0cdad]" started-at="2026-08-05T11:27:58 IST" name="setUp" finished-at="2026-08-05T11:28:00 IST" duration-ms="1936" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testSqlInjectionInput()[pri:0, instance:com.framework.tests.negative.LoginNegativeTest@7cc0cdad]" started-at="2026-08-05T11:28:00 IST" name="testSqlInjectionInput" description="TC_NEG_09: Login fields handle SQL-injection-style input safely" finished-at="2026-08-05T11:28:01 IST" duration-ms="598" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSqlInjectionInput -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.framework.tests.negative.LoginNegativeTest@7cc0cdad]" started-at="2026-08-05T11:28:01 IST" name="tearDown" finished-at="2026-08-05T11:28:01 IST" duration-ms="362" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.framework.tests.negative.LoginNegativeTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
