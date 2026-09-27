@@ -47,13 +47,6 @@ TestNG's HTML report and the emailable summary are generated in `test-output/` a
 
 Every push runs the full suite headless on `ubuntu-latest` (Chrome ships preinstalled on the runner) via GitHub Actions. The TestNG report and, on failure, screenshots are uploaded as workflow artifacts.
 
-## Extension Plan
-
-**Parallelisation**
-- Already parallel at the class level (`testng.xml`, `parallel="classes"`, `thread-count="2"`), backed by `ThreadLocal<WebDriver>` so threads never share a browser session.
-- Next step: **Selenium Grid** (or a cloud grid like BrowserStack/Sauce Labs) to run classes across multiple machines instead of multiple threads on one runner, and to add real cross-browser/cross-OS coverage instead of Chrome-only.
-- Increase `thread-count` and split `testng.xml` into more `<test>` blocks as the suite grows, so CI wall-clock time doesn't scale linearly with test count.
-
 **Reporting**
 - Current: TestNG's built-in HTML/emailable report plus Log4j2 logs and automatic failure screenshots, all uploaded as CI artifacts.
 - Next: swap in **ExtentReports** or **Allure** for a richer, stakeholder-friendly report — timeline view, pass/fail trend across runs, embedded screenshots inline rather than as separate files.
