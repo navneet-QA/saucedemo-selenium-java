@@ -1,158 +1,65 @@
-# Selenium Automation Framework
+# SauceDemo Automated Test Suite (Selenium + Java)
 
-## Overview
+Automated Positive and Negative UI test suite for [saucedemo.com](https://www.saucedemo.com/), built with **Selenium WebDriver + Java + TestNG**, using the Page Object Model. 22 tests total — 12 positive, 10 negative — automating the manual test case sheet 1:1. Runs automatically on every push via GitHub Actions.
 
-This project is a UI automation testing framework developed using **Java**, **Selenium WebDriver**, **TestNG**, and **Maven**. It automates both **positive** and **negative** test scenarios following the **Page Object Model (POM)** design pattern for better maintainability and scalability.
+## Framework Choice + Why
 
----
+**Selenium WebDriver + Java + TestNG**, with WebDriverManager for driver binaries and the Page Object Model for structure.
 
-## Tech Stack
+- **Industry default for Java shops.** Selenium is the most widely required automation tool in QA job descriptions, and pairs naturally with Java, the language most enterprise test suites are already written in — this suite slots straight into that ecosystem rather than asking a team to adopt a new stack.
+- **Mature, broad browser/OS support**, including older browser versions and Selenium Grid for distributed execution across real machines/VMs — useful when a target audience still includes environments a newer, Chromium-first tool doesn't prioritize.
+- **TestNG gives structure Selenium doesn't provide on its own** — annotations (`@BeforeMethod`/`@AfterMethod`), assertions, parallel execution (`parallel="classes"` in `testng.xml`), and suite XML configuration. Selenium is only the browser driver; TestNG is what turns raw browser automation into an organized test suite.
+- **WebDriverManager** removes the historically painful part of Selenium setup — matching a `chromedriver` binary version to the installed browser — by resolving and downloading the right driver automatically at runtime.
+- **Trade-off, honestly:** Selenium has no built-in auto-waiting (every interaction needs an explicit wait, handled here centrally in `BasePage`) and no built-in parallel-safe test runner (handled here via `ThreadLocal<WebDriver>` in `DriverManager`) — both of which a newer tool like Playwright provides out of the box. See the companion [Playwright/TypeScript suite](../saucedemo-playwright) in this portfolio for that comparison; the same 22 scenarios are automated there too.
 
-- Java 17
-- Selenium WebDriver
-- TestNG
-- Maven
-- Git & GitHub
-- GitHub Actions
-
----
-
-## Framework Choice
-
-### Java
-Java is one of the most widely used programming languages for Selenium automation due to its strong community support and extensive libraries.
-
-### Selenium WebDriver
-Used for automating browser interactions across different browsers.
-
-### TestNG
-Provides powerful features such as:
-- Test annotations
-- Test execution control
-- Assertions
-- Grouping
-- Parallel execution support
-
-### Maven
-Used for:
-- Dependency management
-- Build automation
-- Easy project maintenance
-
----
-
-## Framework Structure
+## Project Structure
 
 ```
-Selenium-Automation-Framework
-│
-├── src
-│   ├── main
-│   │    └── java
-│   │         ├── pages
-│   │         └── utilities
-│   │
-│   └── test
-│        └── java
-│             └── tests
-│
-├── testng.xml
+saucedemo-selenium-java/
 ├── pom.xml
-└── README.md
+├── testng.xml
+├── src/
+│   ├── main/java/com/framework/
+│   │   ├── base/DriverManager.java       # Thread-safe WebDriver lifecycle
+│   │   ├── config/ConfigReader.java      # Reads config.properties, supports -D overrides
+│   │   └── pages/                        # Page Object Model — one class per screen
+│   └── test/java/com/framework/
+│       ├── data/TestData.java            # Shared users, product names, expected errors
+│       ├── tests/
+│       │   ├── BaseTest.java             # Fresh browser per test + login helper
+│       │   ├── positive/                 # 12 tests
+│       │   └── negative/                 # 10 tests
+│       └── listeners/TestListener.java   # Logs results + screenshots on failure
+└── .github/workflows/selenium-tests.yml
 ```
 
----
-
-## Test Scenarios
-
-### Positive Test Cases
-
-- Login with valid username and password
-- Verify successful login
-
-### Negative Test Cases
-
-- Invalid username
-- Invalid password
-- Invalid username and password
-- Blank username
-- Blank password
-- Blank username and password
-
----
-
-## How to Run
-
-Clone the repository
+## Running Locally
 
 ```bash
-git clone https://github.com/<your-username>/<repository-name>.git
+mvn clean test                    # headless=false by default (watch it run)
+mvn clean test -Dheadless=true    # headless, e.g. for CI parity
+mvn clean test -Dbrowser=firefox  # switch browser
 ```
 
-Navigate to the project
+TestNG's HTML report and the emailable summary are generated in `test-output/` after each run.
 
-```bash
-cd <repository-name>
-```
+## CI
 
-Execute the tests
-
-```bash
-mvn clean test
-```
-
----
-
-## GitHub Actions
-
-A GitHub Actions workflow is configured to automatically execute the test suite whenever code is pushed to the **main** branch.
-
-Workflow location:
-
-```
-.github/workflows/selenium.yml
-```
-
----
+Every push runs the full suite headless on `ubuntu-latest` (Chrome ships preinstalled on the runner) via GitHub Actions. The TestNG report and, on failure, screenshots are uploaded as workflow artifacts.
 
 ## Extension Plan
 
-### Parallel Execution
+**Parallelisation**
+- Already parallel at the class level (`testng.xml`, `parallel="classes"`, `thread-count="2"`), backed by `ThreadLocal<WebDriver>` so threads never share a browser session.
+- Next step: **Selenium Grid** (or a cloud grid like BrowserStack/Sauce Labs) to run classes across multiple machines instead of multiple threads on one runner, and to add real cross-browser/cross-OS coverage instead of Chrome-only.
+- Increase `thread-count` and split `testng.xml` into more `<test>` blocks as the suite grows, so CI wall-clock time doesn't scale linearly with test count.
 
-Future enhancement includes running tests in parallel using TestNG to reduce execution time.
+**Reporting**
+- Current: TestNG's built-in HTML/emailable report plus Log4j2 logs and automatic failure screenshots, all uploaded as CI artifacts.
+- Next: swap in **ExtentReports** or **Allure** for a richer, stakeholder-friendly report — timeline view, pass/fail trend across runs, embedded screenshots inline rather than as separate files.
+- Publish the report to **GitHub Pages** on `main` so the latest run is a stable link instead of a downloadable artifact.
+- Add a Slack/Teams webhook step on failure so a broken `main` build pages the team instead of waiting to be noticed.
 
-### Reporting
+## Manual Test Case Reference
 
-The framework can be extended with:
-
-- Extent Reports
-- Allure Reports
-
-for rich execution reports with screenshots and detailed logs.
-
-### Future Improvements
-
-- Cross-browser testing
-- Jenkins CI/CD integration
-- Docker execution
-- Data-driven testing using Excel/JSON
-- Screenshot capture on failure
-- Retry failed test cases
-- Logging using Log4j
-
----
-
-## Author
-
-**Navneet Kumar Singh**
-
-Aspiring Software Development Engineer in Test (SDET)
-
-Skills:
-- Java
-- Selenium WebDriver
-- TestNG
-- Maven
-- SQL
-- API Testing
-- Git
+Test descriptions (`@Test(description = "TC_POS_01: ...")`) map directly to the manual test case sheet this suite automates, for traceability between manual and automated coverage.
